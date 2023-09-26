@@ -1,0 +1,105 @@
+body {
+  margin: 0;
+  overflow: hidden;
+  cursor: none;
+  background-color: black;
+}
+
+.cursor {
+  width: 20px;
+  height: 20px;
+  background-color: white;
+  border: 2px solid #000000;
+  border-radius: 50%;
+  position: absolute;
+  pointer-events: none;
+  animation: sparkle 1s infinite alternate, colorChange 1s infinite;
+}
+
+@keyframes sparkle {
+  0%, 100% {
+    background-color: transparent;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    background-color: white; /* Change color as needed */
+    transform: translate(-50%, -50%) scale(1.2);
+  }
+}
+
+@keyframes colorChange {
+  0% {
+    border-color: red;
+    background-color: #000000;
+  }
+  20% {
+    border-color: orange;
+    background-color: brown;
+  }
+  40% {
+    border-color: yellow;
+    background-color: palevioletred;
+  }
+  60% {
+    border-color: green;
+    background-color: cornflowerblue;
+  }
+  80% {
+    border-color: blue;
+  }
+  100% {
+    border-color: purple;
+  }
+}
+
+.main{
+    width: 100vw;
+    height: 100vh;
+}
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+}
+
+.item {
+  position: relative;
+  width: 250px;
+  height: 200px;
+  border: 2px solid #333;
+  overflow: hidden;
+  cursor: none;
+}
+
+.content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 18px;
+  color: #fff;
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.item:hover .content {
+  opacity: 1;
+}
+
+.item img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  visibility: hidden;
+  transition: transform 0.5s;
+}
+
+.item:hover img {
+    visibility: visible;
+  transform: scale(1.1);
+}
